@@ -1,0 +1,5 @@
+# figuring out the tasks that are active and updating the deadline
+# better to implement the --deadline in the globus transfer function from begining
+
+$active_id = globus task list --limit 150 --format unix --jmespath "DATA[?status=='ACTIVE'].[task_id]"
+foreach($id in $active_id) {globus task update $id --deadline '2021-09-15'}
